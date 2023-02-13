@@ -77,10 +77,11 @@ a:hover {
 }
 
 button {
-  border-radius: 20px; /* adds rounded corners */
+  width: 50px; /* set the width and height to the same value */
+  height: 50px;
+  border-radius: 50%; /* makes the button circular */
   background-color: #4CAF50; /* sets background color */
   color: white; /* sets text color */
-  padding: 10px 20px; /* adds padding */
   text-align: center; /* centers text */
   text-decoration: none; /* removes default underline */
   display: inline-block; /* makes button inline */

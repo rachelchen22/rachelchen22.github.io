@@ -1,0 +1,77 @@
+/* Define some basic styles for the page layout */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #ffe0f0;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+footer {
+  background-color: #ffe0f0;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Define some styles for the content of the page */
+h1 {
+  font-size: 36px;
+  margin-top: 0;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Define some styles for links */
+a {
+  color: #ff69b4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Define a class for a call-to-action button */
+.cta-button {
+  display: inline-block;
+  background-color: #ff69b4;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  background-color: #ff4f96;
+}
+
+/* Define a class for an image with a rounded border */
+.rounded-image {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.rounded-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* Define a class for a box with a shadow */
+.shadow-box {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}

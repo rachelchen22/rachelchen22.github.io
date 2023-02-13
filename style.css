@@ -75,3 +75,20 @@ a:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
 }
+
+button {
+  border-radius: 20px; /* adds rounded corners */
+  background-color: #4CAF50; /* sets background color */
+  color: white; /* sets text color */
+  padding: 10px 20px; /* adds padding */
+  text-align: center; /* centers text */
+  text-decoration: none; /* removes default underline */
+  display: inline-block; /* makes button inline */
+  font-size: 16px; /* sets font size */
+  margin: 10px; /* adds margin */
+  border: none; /* removes border */
+}
+
+button:hover {
+  background-color: #3e8e41; /* changes background color on hover */
+}

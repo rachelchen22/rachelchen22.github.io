@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Name | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Monument+Grotesk+Mono&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Patrick Hand', cursive; }
-    h1, h2, h3 { font-family: 'Patrick Hand', monospace; }
+    body { font-family: 'Monument Grotesk Mono', monospace; }
+    h1, h2, h3 { font-family: 'Special Elite', monospace; }
   </style>
 </head>
-<body class="bg-yellow-50 text-gray-800 transition-colors duration-500">
+<body class="bg-gray-50 text-gray-900">
 
   <!-- Navbar -->
-  <header class="fixed w-full bg-yellow-100/90 backdrop-blur-md shadow-md z-10">
+  <header class="fixed w-full bg-white/80 backdrop-blur-md shadow z-10">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold text-green-800">Your Name</a>
+      <a href="index.html" class="text-xl font-bold text-green-800">Your Name</a>
       <nav class="space-x-6">
         <a href="#about" class="hover:text-green-700 transition">About</a>
         <a href="#projects" class="hover:text-green-700 transition">Projects</a>
@@ -26,69 +26,47 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="relative flex flex-col justify-center items-center h-screen text-center px-6 bg-gradient-to-br from-green-100 via-yellow-100 to-yellow-200 overflow-hidden">
-    <!-- Decorative flowers / doodles -->
-    <img src="images/flower1.svg" class="absolute top-8 left-8 w-16 h-16 opacity-50 animate-pulse">
-    <img src="images/flower2.svg" class="absolute bottom-10 right-10 w-20 h-20 opacity-40 animate-pulse">
-
-    <h1 class="text-5xl md:text-6xl font-mono text-green-900 mb-4">Hi, I'm Your Name</h1>
-    <p class="text-lg md:text-2xl text-gray-800 mb-8 max-w-xl">
+  <section class="flex flex-col justify-center items-center h-screen text-center px-6">
+    <h1 class="text-5xl md:text-6xl font-bold mb-4">Hi, I'm Your Name</h1>
+    <p class="text-lg md:text-2xl max-w-xl mb-8">
       FPGA & Digital Design Enthusiast | Creative Explorer | Always Learning
     </p>
-    <div class="space-x-4">
-      <a href="#projects" class="bg-green-200 text-green-900 px-6 py-3 rounded-xl shadow hover:bg-green-300 transition font-semibold">
-        My Projects
-      </a>
-      <a href="#about" class="bg-yellow-200 text-yellow-900 px-6 py-3 rounded-xl shadow hover:bg-yellow-300 transition font-semibold">
-        About Me
-      </a>
-    </div>
+    <a href="#projects" class="bg-green-200 text-green-900 px-6 py-3 rounded shadow hover:bg-green-300 transition">My Projects</a>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="container mx-auto px-6 py-20 max-w-4xl text-center">
-    <h2 class="text-4xl font-mono mb-6 text-green-800">About Me</h2>
-    <p class="text-gray-800 text-lg md:text-xl leading-relaxed">
-      I’m an electrical engineering student passionate about FPGA and digital design.
-      I love blending technical work with creative side projects, from VHDL/Verilog designs
-      to doodles, illustrations, and exploring new artistic ventures.
+  <section id="about" class="container mx-auto px-6 py-20 max-w-3xl text-center">
+    <h2 class="text-4xl mb-6">About Me</h2>
+    <p class="text-gray-700 mb-4">
+      Brief description about yourself — your passions, skills, and creative pursuits.
     </p>
   </section>
 
   <!-- Projects Section -->
   <section id="projects" class="container mx-auto px-6 py-20 max-w-6xl">
-    <h2 class="text-4xl font-mono mb-12 text-green-800 text-center">Projects</h2>
+    <h2 class="text-4xl mb-12 text-center">Projects</h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Project Card -->
-      <div class="bg-yellow-100 rounded-2xl shadow hover:shadow-lg transition transform hover:rotate-1 hover:scale-105 overflow-hidden">
+      <!-- Example Project Card -->
+      <div class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
         <img src="images/project1.png" alt="Project 1" class="w-full h-48 object-cover">
         <div class="p-6">
-          <h3 class="text-2xl font-mono mb-2">Project Title</h3>
-          <p class="text-gray-800 mb-4">Brief description of the project and what you accomplished.</p>
+          <h3 class="text-2xl mb-2">Project Title</h3>
+          <p class="text-gray-700 mb-4">Brief description of the project and your role.</p>
           <a href="#" class="text-green-700 hover:underline">View Code</a>
         </div>
       </div>
-      <!-- Repeat cards for more projects -->
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="container mx-auto px-6 py-20 max-w-4xl text-center">
-    <h2 class="text-4xl font-mono mb-6 text-green-800">Contact</h2>
-    <p class="text-gray-800 mb-6">Feel free to reach out via email or connect on LinkedIn!</p>
-    <div class="flex justify-center space-x-6">
-      <a href="mailto:youremail@example.com" class="bg-green-200 text-green-900 px-6 py-3 rounded-xl shadow hover:bg-green-300 transition font-semibold">
-        Email
-      </a>
-      <a href="https://linkedin.com/in/yourprofile" target="_blank" class="bg-yellow-200 text-yellow-900 px-6 py-3 rounded-xl shadow hover:bg-yellow-300 transition font-semibold">
-        LinkedIn
-      </a>
-    </div>
+  <section id="contact" class="container mx-auto px-6 py-20 max-w-3xl text-center">
+    <h2 class="text-4xl mb-6">Contact</h2>
+    <p class="text-gray-700 mb-6">Reach out via email or LinkedIn.</p>
+    <a href="mailto:youremail@example.com" class="bg-green-200 text-green-900 px-6 py-3 rounded shadow hover:bg-green-300 transition">Email Me</a>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-green-200 py-6 text-center text-green-900">
-    © 2025 Your Name. Built with ❤️ and Tailwind CSS.
+  <footer class="bg-gray-100 py-6 text-center text-gray-600">
+    © 2025 Your Name. Built with Tailwind CSS.
   </footer>
 
 </body>

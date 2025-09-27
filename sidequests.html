@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+  <!-- Load Inconsolata font -->
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sidequests | Rachel Chen</title>
-  
-  <!-- Tailwind CSS -->
+  <title>Rachel Chen | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Font: Source Code Pro -->
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
-
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
-
-    <style>
+  <style>
     /* Apply Inconsolata globally */
     body, h1, h2, h3, h4, h5, h6, p, a, li, span, div {
       font-family: 'Inconsolata', monospace;
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-white text-blue-400">
 
-  <!-- Sidebar -->
   <aside class="fixed left-6 top-6 h-screen w-24 flex flex-col justify-start items-start space-y-6 z-20">
-    <a href="index.html" class="hover:text-yellow-400 transition flex items-center">
+    <a href="index.html" class="hover:text-yellow-200 transition flex items-center text-xl">
       <span class="mr-2">→</span>engineering
     </a>
-    <a href="sidequests.html" class="hover:text-yellow-400 transition flex items-center">
+
+    <a href="sidequests.html" class="hover:text-yellow-200 transition flex items-center text-xl">
       <span class="mr-2">→</span>sidequests
     </a>
-    <a href="index.html#about" class="hover:text-yellow-400 transition flex items-center">
+
+    <a href="#about" class="hover:text-yellow-200 transition flex items-center text-xl">
       <span class="mr-2">→</span>about
     </a>
   </aside>
@@ -41,43 +34,43 @@
   <!-- Main Content -->
   <main class="ml-32 mt-6 px-8">
 
-    <!-- Hero / Header -->
-    <section id="hero" class="relative flex items-start pt-6 pb-20">
-      <div class="relative z-10 max-w-3xl ml-24">
-        <h1 class="text-5xl md:text-6xl mb-4 leading-tight">Sidequests</h1>
-        <h2 class="text-2xl mb-8">Creative projects, hobbies, and experiments</h2>
+    <!-- Engineering Section -->
+    <section id="engineering" class="relative py-20">
+      <div class="absolute inset-0"></div>
+      <div class="relative z-10 max-w-3xl">
+        <h2 class="text-4xl mb-6">engineering</h2>
+        <p class="subtext text-gray-700 leading-relaxed">
+          Description of engineering projects or FPGA/VHDL work.
+        </p>
       </div>
     </section>
 
-    <!-- Projects / Hobbies Section -->
-    <section id="projects" class="relative py-10">
-      <div class="relative z-10 max-w-4xl space-y-12">
-        
-        <!-- Example Card -->
-        <div class="bg-green-100/20 p-6 rounded-lg shadow-md">
-          <h3 class="text-3xl mb-2">Art Experiments</h3>
-          <p class="text-gray-700 leading-relaxed">
-            Painting, digital art, and small creative projects I've explored in my free time.
-          </p>
-        </div>
-
-        <div class="bg-green-100/20 p-6 rounded-lg shadow-md">
-          <h3 class="text-3xl mb-2">Writing & Storytelling</h3>
-          <p class="text-gray-700 leading-relaxed">
-            Short stories, poetry, and creative writing exercises.
-          </p>
-        </div>
-
-        <div class="bg-green-100/20 p-6 rounded-lg shadow-md">
-          <h3 class="text-3xl mb-2">Music & Audio</h3>
-          <p class="text-gray-700 leading-relaxed">
-            Composing, recording, and experimenting with sound and music production.
-          </p>
-        </div>
-
-        <!-- Add more cards as needed -->
+    <!-- Sidequests Section -->
+    <section id="sidequests" class="relative py-20">
+      <div class="absolute inset-0"></div>
+      <div class="relative z-10 max-w-3xl">
+        <h2 class="text-4xl mb-6">sidequests</h2>
+        <p class="subtext text-gray-700 leading-relaxed">
+          Description of artistic side projects, hobbies, and creative experiments.
+        </p>
       </div>
     </section>
+
+    <!-- About Section -->
+    <section id="about" class="relative py-20">
+      <div class="absolute inset-0"></div>
+      <div class="relative z-10 max-w-3xl">
+        <h2 class="text-4xl mb-6">about</h2>
+        <p class="subtext text-gray-700 leading-relaxed">
+          Short bio, educational background, interests, and philosophy.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
 
 <footer class="mt-20 mb-6 text-gray-500 text-sm text-center">
   <p>© 2025 RCHEN</p>

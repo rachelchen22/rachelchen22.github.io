@@ -1,11 +1,11 @@
 body {
-  font-family: 'Special Elite', monospace;
+  font-family: 'Inconsolata', monospace;
 }
 
 h1, h2, h3 {
-  font-family: 'Special Elite', monospace; /* typewriter headings */
+  font-family: 'Inconsolata', monospace; /* typewriter headings */
 }
 
 .subtext {
-  font-family: 'Special Elite', monospace; /* typewriter subtext too */
+  font-family: 'Inconsolata', monospace; /* typewriter subtext too */
 }

@@ -2,3 +2,7 @@
 body, h1, h2, h3, h4, h5, h6, p, a, li, span, div {
   font-family: 'Inconsolata', monospace;
 }
+
+.font-mono {
+  font-family: 'Inconsolata', monospace !important;
+}

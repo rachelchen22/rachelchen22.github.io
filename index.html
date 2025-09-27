@@ -1,43 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rachel Chen | Portfolio</title>
+  <title>Your Name | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Poppins', sans-serif; }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-900 text-gray-200">
 
   <!-- Navbar -->
-  <nav class="bg-white shadow-md fixed w-full z-10">
+  <nav class="bg-gray-800/80 backdrop-blur-md fixed w-full z-10 shadow-md">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-xl font-bold text-indigo-600">Your Name</a>
+      <a href="index.html" class="text-2xl font-bold text-pink-400">Your Name</a>
       <div class="space-x-6">
-        <a href="projects.html" class="hover:text-indigo-500">Projects</a>
-        <a href="hobbies.html" class="hover:text-indigo-500">Hobbies</a>
-        <a href="resume.html" class="hover:text-indigo-500">Resume</a>
-        <a href="contact.html" class="hover:text-indigo-500">Contact</a>
+        <a href="projects.html" class="hover:text-pink-300 transition">Projects</a>
+        <a href="hobbies.html" class="hover:text-pink-300 transition">Hobbies</a>
+        <a href="resume.html" class="hover:text-pink-300 transition">Resume</a>
+        <a href="contact.html" class="hover:text-pink-300 transition">Contact</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="flex flex-col justify-center items-center h-screen bg-gradient-to-br from-indigo-200 to-purple-200 text-center px-6">
-    <h1 class="text-5xl md:text-6xl font-bold text-indigo-900 mb-4">Hi, I'm Your Name</h1>
-    <p class="text-xl md:text-2xl mb-6">FPGA & Digital Design Enthusiast | Creative Problem Solver | Explorer of Life</p>
+  <section class="relative flex flex-col justify-center items-center h-screen text-center px-6 bg-gradient-to-br from-purple-900 via-indigo-900 to-pink-900 overflow-hidden">
+    <!-- Decorative flowers -->
+    <img src="images/flower1.svg" class="absolute top-8 left-8 w-16 h-16 opacity-40 animate-pulse">
+    <img src="images/flower2.svg" class="absolute bottom-10 right-10 w-20 h-20 opacity-30 animate-pulse">
+
+    <h1 class="text-5xl md:text-6xl font-bold text-pink-400 mb-4">Hi, I'm Your Name</h1>
+    <p class="text-lg md:text-2xl text-gray-200 mb-8 max-w-xl">FPGA & Digital Design Enthusiast | Creative Explorer | Always Learning & Coding</p>
+    
     <div class="space-x-4">
-      <a href="projects.html" class="bg-indigo-600 text-white px-6 py-3 rounded-2xl shadow hover:bg-indigo-500 transition">My Projects</a>
-      <a href="hobbies.html" class="bg-purple-600 text-white px-6 py-3 rounded-2xl shadow hover:bg-purple-500 transition">My Hobbies</a>
+      <a href="projects.html" class="bg-pink-400 text-gray-900 px-6 py-3 rounded-2xl shadow hover:bg-pink-300 transition font-semibold">
+        My Projects
+      </a>
+      <a href="hobbies.html" class="bg-purple-600 text-gray-200 px-6 py-3 rounded-2xl shadow hover:bg-purple-500 transition font-semibold">
+        My Hobbies
+      </a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-white py-6 mt-12 shadow-inner">
-    <p class="text-center text-gray-500">© 2025 Your Name. Built with ❤️ and Tailwind CSS.</p>
+  <footer class="bg-gray-800 py-6 mt-12 shadow-inner text-gray-400 text-center">
+    <p>© 2025 Your Name. Built with ❤️ and Tailwind CSS.</p>
   </footer>
 
 </body>

@@ -1,11 +1,4 @@
-body {
+/* Apply Inconsolata to the whole page */
+body, h1, h2, h3, h4, h5, h6, p, a, li, span, div {
   font-family: 'Inconsolata', monospace;
-}
-
-h1, h2, h3 {
-  font-family: 'Inconsolata', monospace; /* typewriter headings */
-}
-
-.subtext {
-  font-family: 'Inconsolata', monospace; /* typewriter subtext too */
 }

@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rachel Chen | Portfolio</title>
+  <title>Hobbies | Your Name</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Poppins', sans-serif; }
-  </style>
+  <style>body { font-family: 'Poppins', sans-serif; }</style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
@@ -25,17 +23,24 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="flex flex-col justify-center items-center h-screen bg-gradient-to-br from-indigo-200 to-purple-200 text-center px-6">
-    <h1 class="text-5xl md:text-6xl font-bold text-indigo-900 mb-4">Hi, I'm Your Name</h1>
-    <p class="text-xl md:text-2xl mb-6">FPGA & Digital Design Enthusiast | Creative Problem Solver | Explorer of Life</p>
-    <div class="space-x-4">
-      <a href="projects.html" class="bg-indigo-600 text-white px-6 py-3 rounded-2xl shadow hover:bg-indigo-500 transition">My Projects</a>
-      <a href="hobbies.html" class="bg-purple-600 text-white px-6 py-3 rounded-2xl shadow hover:bg-purple-500 transition">My Hobbies</a>
+  <section class="pt-32 px-6 container mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12 text-purple-700">My Hobbies & Side Projects</h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Hobby Card -->
+      <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 flex flex-col">
+        <img src="images/hobby1.png" alt="Hobby 1" class="rounded-xl mb-4">
+        <h3 class="text-2xl font-semibold mb-2">Hobby Title</h3>
+        <p class="text-gray-600 mb-4">Brief description showing creativity or skills.</p>
+        <div class="mt-auto">
+          <a href="#" class="text-purple-600 hover:underline">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Add more cards as needed -->
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-white py-6 mt-12 shadow-inner">
     <p class="text-center text-gray-500">© 2025 Your Name. Built with ❤️ and Tailwind CSS.</p>
   </footer>

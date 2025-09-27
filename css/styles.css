@@ -1,18 +1,11 @@
-@font-face {
-  font-family: 'Monument Grotesk Mono';
-  src: url('../fonts/MonumentGroteskMono-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-}
-
 body {
-  font-family: 'Patrick Hand', cursive;
-}
-
-h1, h2, h3 {
   font-family: 'Special Elite', monospace;
 }
 
+h1, h2, h3 {
+  font-family: 'Special Elite', monospace; /* typewriter headings */
+}
+
 .subtext {
-  font-family: 'Monument Grotesk Mono', monospace;
+  font-family: 'Special Elite', monospace; /* typewriter subtext too */
 }

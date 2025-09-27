@@ -1,69 +1,68 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>rchen</title>
+  <title>Rachel Chen | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="bg-gray-900 text-gray-100">
 
-  <!-- Sidebar -->
-  <aside class="fixed left-0 top-0 h-screen w-24 bg-gray-800/80 backdrop-blur-md flex flex-col justify-center items-center space-y-6 py-10 z-20">
-    <a href="#about" class="hover:text-green-300 transition">about</a>
-    <a href="#projects" class="hover:text-green-300 transition">projects</a>
-    <a href="#contact" class="hover:text-green-300 transition">contact</a>
+  <!-- Sidebar (fixed left bar) -->
+  <aside class="fixed left-0 top-0 h-screen w-24 bg-gray-800/80 backdrop-blur-md flex flex-col justify-center items-start py-10 px-4 space-y-6 z-20">
+    <a href="#engineering" class="hover:text-green-300 transition flex items-center"><span class="mr-2">→</span>Engineering</a>
+    <a href="#sidequests" class="hover:text-green-300 transition flex items-center"><span class="mr-2">→</span>Sidequests</a>
+    <a href="#about" class="hover:text-green-300 transition flex items-center"><span class="mr-2">→</span>About</a>
   </aside>
 
   <!-- Main Content -->
   <main class="ml-28 px-8">
-    
+
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center">
-      <div class="absolute inset-0 bg-green-900/50"></div>
+    <section id="hero" class="relative h-screen flex items-center">
+      <div class="absolute inset-0 bg-green-900/50"></div> <!-- overlay for layered effect -->
       <div class="relative z-10 max-w-3xl">
-        <h1 class="text-5xl md:text-6xl font-mono mb-4">rachel chen</h1>
-        <h2 class="subtext text-lg md:text-2xl mb-8">intro</h2>
-        <a href="#projects" class="bg-green-400 text-gray-900 px-6 py-3 rounded shadow hover:bg-green-300 transition font-semibold">
-          My Projects
-        </a>
+        <h1 class="text-5xl md:text-6xl font-mono mb-4">RACHEL CHEN</h1>
+        <h2 class="subtext text-lg md:text-2xl mb-8">Introduction</h2>
+      </div>
+      <!-- Right column media -->
+      <div class="absolute right-0 top-1/4 transform translate-x-1/4">
+        <img src="images/your-profile.png" alt="Profile" class="rounded-full w-48 border-0 border-solid border-gray-400">
+      </div>
+    </section>
+
+    <!-- Engineering Section -->
+    <section id="engineering" class="relative py-20">
+      <div class="absolute inset-0 bg-green-800/30"></div>
+      <div class="relative z-10 max-w-3xl">
+        <h2 class="text-4xl font-mono mb-6">Engineering</h2>
+        <p class="subtext text-gray-200 leading-relaxed">
+          Description of engineering projects or FPGA/VHDL work.
+        </p>
+      </div>
+    </section>
+
+    <!-- Sidequests Section -->
+    <section id="sidequests" class="relative py-20">
+      <div class="absolute inset-0 bg-green-700/20"></div>
+      <div class="relative z-10 max-w-3xl">
+        <h2 class="text-4xl font-mono mb-6">Sidequests</h2>
+        <p class="subtext text-gray-200 leading-relaxed">
+          Description of artistic side projects, hobbies, and creative experiments.
+        </p>
       </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="relative py-20">
-      <div class="absolute inset-0 bg-green-800/30"></div>
+      <div class="absolute inset-0 bg-green-600/20"></div>
       <div class="relative z-10 max-w-3xl">
-        <h2 class="text-4xl font-mono mb-6">about</h2>
+        <h2 class="text-4xl font-mono mb-6">About Me</h2>
         <p class="subtext text-gray-200 leading-relaxed">
-          hello hello hello
+          Short bio, educational background, interests, and philosophy.
         </p>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="relative py-20">
-      <div class="absolute inset-0 bg-green-700/20"></div>
-      <div class="relative z-10 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Example Project Card -->
-        <div class="bg-gray-800 rounded-2xl shadow hover:shadow-lg transition transform hover:scale-105 p-6">
-          <h3 class="text-2xl font-mono mb-2">Project Title</h3>
-          <p class="subtext text-gray-200 mb-4">Brief description of the project.</p>
-          <a href="#" class="text-green-300 hover:underline subtext">View Code</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="relative py-20">
-      <div class="absolute inset-0 bg-green-800/20"></div>
-      <div class="relative z-10 max-w-3xl text-center">
-        <h2 class="text-4xl font-mono mb-6">Contact</h2>
-        <p class="subtext mb-6">Reach out via email or LinkedIn.</p>
-        <a href="mailto:youremail@example.com" class="bg-green-400 text-gray-900 px-6 py-3 rounded shadow hover:bg-green-300 transition">
-          Email Me
-        </a>
       </div>
     </section>
 

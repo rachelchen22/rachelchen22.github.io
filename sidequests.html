@@ -17,19 +17,15 @@
 </head>
 <body class="bg-white text-blue-400">
 
-  <aside class="fixed left-6 top-6 h-screen w-24 flex flex-col justify-start items-start space-y-6 z-20">
-    <a href="index.html" class="hover:text-yellow-200 transition flex items-center text-xl">
-      <span class="mr-2">→</span>engineering
-    </a>
-
-    <a href="sidequests.html" class="hover:text-yellow-200 transition flex items-center text-xl">
-      <span class="mr-2">→</span>sidequests
-    </a>
-
-    <a href="about.html" class="hover:text-yellow-200 transition flex items-center text-xl">
-      <span class="mr-2">→</span>about
-    </a>
-  </aside>
+    <!-- Sidebar gets loaded here -->
+  <div id="sidebar"></div>
+  <script>
+    fetch("sidebar.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("sidebar").innerHTML = data;
+      });
+  </script>
 
   <!-- Main Content -->
     <main class="ml-40 mt-6 px-8">

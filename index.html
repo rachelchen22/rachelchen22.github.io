@@ -1,76 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Load Inconsolata font -->
+  <!-- Load Inconsolata & Source Code Pro fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>rchen</title>
+  <title>Rachel Chen | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/styles.css">
+  
   <style>
-    /* Apply Inconsolata globally */
     body, h1, h2, h3, h4, h5, h6, p, a, li, span, div {
       font-family: 'Inconsolata', monospace;
     }
   </style>
 </head>
-<body class="bg-white text-blue-400">
+<body class="relative">
 
-  <aside class="fixed left-6 top-12 h-screen w-24 flex flex-col justify-start items-start space-y-6 z-20">
+  <!-- Sidebar -->
+  <aside class="fixed left-6 top-12 h-screen w-24 flex flex-col justify-start items-start space-y-6 z-20 text-white">
     <a href="index.html" class="hover:text-yellow-200 transition flex items-center text-xl">
       <span class="mr-2">→</span>engineering
     </a>
-
     <a href="sidequests.html" class="hover:text-yellow-200 transition flex items-center text-xl">
       <span class="mr-2">→</span>sidequests
     </a>
-
     <a href="about.html" class="hover:text-yellow-200 transition flex items-center text-xl">
       <span class="mr-2">→</span>about
     </a>
   </aside>
 
-  <!-- Main Content -->
-  <main class="ml-40 mt-6 px-8">
+  <!-- Hero Section (full-screen background) -->
+  <section id="hero" class="relative w-full h-screen bg-cover bg-center" style="background-image: url('images/landing-bg.jpg');">
+    <!-- Optional overlay for readability -->
+    <div class="absolute inset-0 bg-black/40"></div>
 
-    <!-- Hero Section -->
-<section id="hero" class="relative w-full h-screen bg-cover bg-center" style="background-image: url('images/profile.jpg');">
-  <!-- Overlay to darken the image a little for readability -->
-  <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative z-10 max-w-3xl px-12 pt-32">
+      <h1 class="text-6xl mb-6 text-white" style="font-family: 'Source Code Pro', monospace; font-weight: 500;">
+        RACHEL CHEN
+      </h1>
+      <h2 class="text-lg md:text-2xl text-white leading-relaxed">
+        Senior @ Purdue University studying Electrical & Computer Engineering with a Computer Systems concentration.
+        <br><br>
+        Interested in embedded systems, FPGA design, robotic controls, game dev, and computer graphics.
+      </h2>
+    </div>
+  </section>
 
-  <div class="relative z-10 max-w-3xl px-8 pt-20">
-    <h1 class="text-6xl mb-6 text-white" style="font-family: 'Source Code Pro', monospace; font-weight: 500;">
-      RACHEL CHEN
-    </h1>
-    <h2 class="subtext text-lg md:text-2xl mb-8 text-white">
-      Senior @ Purdue University studying electrical and computer engineering w/ a computer systems concentration.
-      <br><br>
-      Interested in embedded systems, FPGA design, robotic controls, and game dev and computer graphics.
-    </h2>
-  </div>
-</section>
+  <!-- Engineering Section -->
+  <section id="engineering" class="relative w-full py-32 bg-white">
+    <div class="relative max-w-3xl mx-auto px-12">
+      <h2 class="text-4xl mb-6 text-blue-600">Engineering</h2>
+      <p class="text-gray-700 leading-relaxed">
+        Description of engineering projects, FPGA/VHDL experiments, embedded systems work, and other portfolio highlights.
+      </p>
+    </div>
+  </section>
 
-    <!-- Engineering Section -->
-    <section id="engineering" class="relative py-20">
-      <div class="absolute inset-0"></div>
-      <div class="relative z-10 max-w-3xl">
-        <h2 class="text-4xl mb-6">engineering</h2>
-        <p class="subtext text-gray-700 leading-relaxed">
-          Description of engineering projects or FPGA/VHDL work.
-        </p>
-      </div>
-    </section>
-
-
-  </main>
+  <!-- Footer -->
+  <footer class="mt-0 mb-6 text-gray-500 text-sm text-center">
+    <p>© 2025 Rachel Chen</p>
+    <p>written with ❤️ thanks to GitHub Pages & Tailwind CSS</p>
+  </footer>
 
 </body>
 </html>
-
-<footer class="mt-20 mb-6 text-gray-500 text-sm text-center">
-  <p>© 2025 RCHEN</p>
-  <p>
-    written with ❤️ thanks to GitHub Pages & Tailwind CSS
-  </p>
-</footer>

@@ -5,7 +5,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rachel Chen | Portfolio</title>
+  <title>rchen</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css">
   <style>
@@ -32,59 +32,59 @@
   </aside>
 
   <!-- Main Content -->
-    <main class="ml-40 mt-6 px-8">
+  <main class="ml-40 mt-6 px-8 space-y-32">
 
-    <section id="hero" class="relative flex items-start pt-6 pb-40">
-      <div class="relative z-10 max-w-3xl">
-        <h1 class="text-6xl mb-6" style="font-family: 'Source Code Pro', monospace; font-weight: 500;">
-          sidequests
-        </h1>
-
-        <h2 class="subtext text-lg md:text-2xl mb-8">introduction</h2>
-      </div>
-
-
-    </section>
-
-    <!-- Sidequests Section -->
-    <section id="sidequests" class="relative py-20">
-      <div class="absolute inset-0"></div>
-      <div class="relative z-10 max-w-3xl">
-        <h2 class="text-4xl mb-6">sidequests</h2>
-        <p class="subtext text-gray-700 leading-relaxed">
-          Description of artistic side projects, hobbies, and creative experiments.
+    <!-- Section 1 -->
+    <section class="flex flex-col md:flex-row items-center bg-green-100 py-20 px-6 rounded-lg">
+      <div class="md:w-1/2 mb-8 md:mb-0">
+        <h2 class="text-3xl font-semibold mb-4">FPGA Experiments</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Description of FPGA projects, VHDL/Verilog experiments, and embedded systems work.
         </p>
       </div>
-
-      <!-- Grid of cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <!-- Card 1 -->
-      <div class="bg-gray-100 rounded-2xl shadow-md p-6 hover:shadow-lg transition">
-        <img src="images/hobby1.jpg" alt="Hobby 1" class="w-full h-40 object-cover rounded-lg mb-4">
-        <h2 class="text-xl font-bold mb-2">Photography</h2>
-        <p class="text-gray-700">Exploring light, film, and digital experiments.</p>
+      <div class="md:w-1/2">
+        <img src="images/fpga.jpg" alt="FPGA" class="rounded-lg w-full object-cover">
       </div>
-
-      <!-- Card 2 -->
-      <div class="bg-gray-100 rounded-2xl shadow-md p-6 hover:shadow-lg transition">
-        <img src="images/hobby2.jpg" alt="Hobby 2" class="w-full h-40 object-cover rounded-lg mb-4">
-        <h2 class="text-xl font-bold mb-2">Painting</h2>
-        <p class="text-gray-700">Acrylics, sketching, and color studies.</p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="bg-gray-100 rounded-2xl shadow-md p-6 hover:shadow-lg transition">
-        <img src="images/hobby3.jpg" alt="Hobby 3" class="w-full h-40 object-cover rounded-lg mb-4">
-        <h2 class="text-xl font-bold mb-2">Music</h2>
-        <p class="text-gray-700">Guitar, piano, and experimenting with sound.</p>
-      </div>
-
-      <!-- Add more cards here -->
     </section>
 
-    
+    <!-- Section 2 (swap left/right) -->
+    <section class="flex flex-col md:flex-row-reverse items-center bg-yellow-100 py-20 px-6 rounded-lg">
+      <div class="md:w-1/2 mb-8 md:mb-0">
+        <h2 class="text-3xl font-semibold mb-4">Painting & Sketching</h2>
+        <p class="text-gray-700 leading-relaxed">
+          My artistic side: sketches, watercolor, digital painting, and more.
+        </p>
+      </div>
+      <div class="md:w-1/2">
+        <img src="images/painting.jpg" alt="Painting" class="rounded-lg w-full object-cover">
+      </div>
+    </section>
 
+    <!-- Section 3 -->
+    <section class="flex flex-col md:flex-row items-center bg-green-200 py-20 px-6 rounded-lg">
+      <div class="md:w-1/2 mb-8 md:mb-0">
+        <h2 class="text-3xl font-semibold mb-4">Piano & Music</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Music projects, piano pieces, and compositions I enjoy working on.
+        </p>
+      </div>
+      <div class="md:w-1/2">
+        <img src="images/music.jpg" alt="Music" class="rounded-lg w-full object-cover">
+      </div>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="flex flex-col md:flex-row-reverse items-center bg-yellow-200 py-20 px-6 rounded-lg">
+      <div class="md:w-1/2 mb-8 md:mb-0">
+        <h2 class="text-3xl font-semibold mb-4">Game Development</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Indie game projects, computer graphics experiments, and interactive demos.
+        </p>
+      </div>
+      <div class="md:w-1/2">
+        <img src="images/gamedev.jpg" alt="Game Dev" class="rounded-lg w-full object-cover">
+      </div>
+    </section>
 
   </main>
 

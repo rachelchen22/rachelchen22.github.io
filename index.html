@@ -31,8 +31,9 @@
   <section id="hero" class="relative w-full h-screen bg-cover bg-center" style="background-image: url('images/gradient.png');">
     <div class="absolute inset-0 bg-black/10"></div>
 
-    <!-- Hero Text -->
-    <div class="absolute left-48 top-16 z-10 max-w-3xl">
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-3xl mx-auto px-6 pt-16">
+      <!-- Hero Text -->
       <h1 class="text-6xl mb-6 text-white" style="font-family: 'Source Code Pro', monospace; font-weight: 500;">
         RACHEL CHEN
       </h1>
@@ -41,6 +42,37 @@
         <br><br>
         Interested in FPGA design, embedded systems, robotic controls, game dev, and computer graphics.
       </h2>
+
+      <!-- Bottom Photo Gallery -->
+      <div class="mt-8">
+        <p class="text-sm text-gray-200 text-center italic mb-4">Click an image to expand</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <!-- Photo 1 -->
+          <div class="flex flex-col items-center">
+            <img src="images/family1.jpg" alt="Family 1" class="rounded-lg shadow-lg w-full cursor-pointer"
+                onclick="openModal('images/family1-large.jpg')">
+            <p class="text-xs text-center mt-1 text-white">Family 1</p>
+          </div>
+          <!-- Photo 2 -->
+          <div class="flex flex-col items-center">
+            <img src="images/friends1.jpg" alt="Friends 1" class="rounded-lg shadow-lg w-full cursor-pointer"
+                onclick="openModal('images/friends1-large.jpg')">
+            <p class="text-xs text-center mt-1 text-white">Friends 1</p>
+          </div>
+          <!-- Photo 3 -->
+          <div class="flex flex-col items-center">
+            <img src="images/family2.jpg" alt="Family 2" class="rounded-lg shadow-lg w-full cursor-pointer"
+                onclick="openModal('images/family2-large.jpg')">
+            <p class="text-xs text-center mt-1 text-white">Family 2</p>
+          </div>
+          <!-- Photo 4 -->
+          <div class="flex flex-col items-center">
+            <img src="images/friends2.jpg" alt="Friends 2" class="rounded-lg shadow-lg w-full cursor-pointer"
+                onclick="openModal('images/friends2-large.jpg')">
+            <p class="text-xs text-center mt-1 text-white">Friends 2</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Profile Picture -->
@@ -48,45 +80,6 @@
       <img src="images/profile.jpg" class="w-60 rounded-full object-cover mb-4">
       <div class="text-center space-y-2 text-black text-sm">
         <p>email: chen4172 at purdue dot com</p>
-      </div>
-    </div>
-
-    <!-- Bottom Photo Gallery -->
-    <div class="w-full max-w-5xl px-6 mx-auto mt-12 mb-16">
-      <!-- Instruction -->
-      <p class="text-sm text-gray-200 text-center italic mb-4">Click an image to expand</p>
-
-      <!-- Gallery Grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        
-        <!-- Photo 1 -->
-        <div class="flex flex-col items-center">
-          <img src="images/family1.jpg" alt="Family 1" class="rounded-lg shadow-lg w-full cursor-pointer"
-              onclick="openModal('images/family1-large.jpg')">
-          <p class="text-xs text-center mt-1 text-white">Family 1</p>
-        </div>
-
-        <!-- Photo 2 -->
-        <div class="flex flex-col items-center">
-          <img src="images/friends1.jpg" alt="Friends 1" class="rounded-lg shadow-lg w-full cursor-pointer"
-              onclick="openModal('images/friends1-large.jpg')">
-          <p class="text-xs text-center mt-1 text-white">Friends 1</p>
-        </div>
-
-        <!-- Photo 3 -->
-        <div class="flex flex-col items-center">
-          <img src="images/family2.jpg" alt="Family 2" class="rounded-lg shadow-lg w-full cursor-pointer"
-              onclick="openModal('images/family2-large.jpg')">
-          <p class="text-xs text-center mt-1 text-white">Family 2</p>
-        </div>
-
-        <!-- Photo 4 -->
-        <div class="flex flex-col items-center">
-          <img src="images/friends2.jpg" alt="Friends 2" class="rounded-lg shadow-lg w-full cursor-pointer"
-              onclick="openModal('images/friends2-large.jpg')">
-          <p class="text-xs text-center mt-1 text-white">Friends 2</p>
-        </div>
-
       </div>
     </div>
   </section>
@@ -113,7 +106,7 @@
     <div class="md:w-1/2 flex flex-col items-center md:items-start space-y-6 md:pl-8">
 
       <!-- Instruction Text -->
-      <p class="text-sm text-gray-500 italic mb-2 w-full text-center">Click to expand</p>
+      <p class="text-sm text-gray-500 italic mb-2 w-full text-center">click to expand</p>
 
       <!-- Gallery Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">

@@ -50,6 +50,41 @@
         <p>email: chen4172 at purdue dot com</p>
       </div>
     </div>
+
+    <!-- Bottom Photo Gallery -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 w-full max-w-5xl px-6">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        
+        <!-- Photo 1 -->
+        <div class="flex flex-col items-center">
+          <img src="images/family1.jpg" alt="Family 1" class="rounded-lg shadow-lg w-full cursor-pointer"
+              onclick="openModal('images/family1-large.jpg')">
+          <p class="text-xs text-center mt-1 text-white">Caption 1</p>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="flex flex-col items-center">
+          <img src="images/friends1.jpg" alt="Friends 1" class="rounded-lg shadow-lg w-full cursor-pointer"
+              onclick="openModal('images/friends1-large.jpg')">
+          <p class="text-xs text-center mt-1 text-white">Caption 2</p>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="flex flex-col items-center">
+          <img src="images/family2.jpg" alt="Family 2" class="rounded-lg shadow-lg w-full cursor-pointer"
+              onclick="openModal('images/family2-large.jpg')">
+          <p class="text-xs text-center mt-1 text-white">Caption 3</p>
+        </div>
+
+        <!-- Photo 4 -->
+        <div class="flex flex-col items-center">
+          <img src="images/friends2.jpg" alt="Friends 2" class="rounded-lg shadow-lg w-full cursor-pointer"
+              onclick="openModal('images/friends2-large.jpg')">
+          <p class="text-xs text-center mt-1 text-white">Caption 4</p>
+        </div>
+
+      </div>
+    </div>
   </section>
 
   <!-- FPGA/VHDL Section -->
@@ -82,14 +117,8 @@
           </div>
           <!-- Image 2 -->
           <div class="flex flex-col items-center">
-            <img src="images/rxsupporting.png" alt="Image 2" class="rounded-lg shadow-lg w-full cursor-pointer"
+            <img src="images/rxFSM.png" alt="Image 2" class="rounded-lg shadow-lg w-full cursor-pointer"
                  onclick="openModal('images/photo2-large.jpg')">
-            <p class="text-sm text-center mt-2">supporting function RTL</p>
-          </div>
-          <!-- Image 3 -->
-          <div class="flex flex-col items-center">
-            <img src="images/rxFSM.png" alt="Image 3" class="rounded-lg shadow-lg w-full cursor-pointer"
-                 onclick="openModal('images/photo3-large.jpg')">
             <p class="text-sm text-center mt-2">FSM diagram</p>
           </div>
         </div>

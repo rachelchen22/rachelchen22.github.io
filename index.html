@@ -76,117 +76,20 @@
         </p>
       </div>
 
-      <!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Load Inconsolata & Source Code Pro fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RCHEN</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <style>
-    body, h1, h2, h3, h4, h5, h6, p, a, li, span, div {
-      font-family: 'Inconsolata', monospace;
-    }
-  </style>
-</head>
-<body class="relative">
-
-  <!-- Sidebar -->
-  <aside class="fixed left-6 top-12 h-screen w-24 flex flex-col justify-start items-start space-y-6 z-20 text-gray-700">
-    <a href="index.html" class="hover:text-yellow-100 transition flex items-center text-xl">
-      <span class="mr-2">→</span>engineering
-    </a>
-    <a href="https://linkedin.com/in/rachelchen19" target="_blank" class="underline hover:text-yellow-100 text-xl">linkedin</a>
-    <a href="https://github.com/rachelchen22" target="_blank" class="underline hover:text-yellow-100 text-xl">github</a>
-
-    <!-- <a href="sidequests.html" class="hover:text-yellow-200 transition flex items-center text-xl">
-      <span class="mr-2">→</span>sidequests
-    </a>
-    <a href="about.html" class="hover:text-yellow-200 transition flex items-center text-xl">
-      <span class="mr-2">→</span>about
-    </a> -->
-  </aside>
-
-  <!-- Hero Section (full-screen background) -->
-  <section id="hero" class="relative w-full h-screen bg-cover bg-center" style="background-image: url('images/gradient.png');">
-    <div class="absolute inset-0 bg-black/10"></div>
-
-      <!-- Floating text shifted more to the right -->
-      <div class="absolute left-48 top-16 z-10 max-w-3xl">
-        <h1 class="text-6xl mb-6 text-white" style="font-family: 'Source Code Pro', monospace; font-weight: 500;">
-          RACHEL CHEN
-        </h1>
-        <h2 class="text-lg md:text-2xl text-white leading-relaxed">
-          Senior @ Purdue University studying Electrical & Computer Engineering with a Computer Systems concentration.
-          <br><br>
-          Interested in FPGA design, embedded systems, robotic controls, game dev, and computer graphics.
-        </h2>
-    </div>
-
-    <div class="absolute right-20 top-8 z-50 flex flex-col items-center">
-        <img src="images/profile.jpg" class="w-60 rounded-full object-cover mb-4">
-        <div class="text-center space-y-2 text-black text-sm">
-          <p>email: chen4172 at purdue dot com</p>
+      <!-- Image Column -->
+      <div class="md:w-1/2 flex flex-col items-center">
+        <img src="images/rxFSM.png" alt="Engineering Project" class="rounded-lg shadow-lg w-full max-w-sm">
+        <div class="w-full max-w-sm text-center text-black text-sm mt-2">
+          <p>the RTL diagrams for the top level, supporting functions, and FSM</p>
         </div>
-    </div>
-    
+      </div>
   </section>
 
-  <!-- FPGA/VHDL Section -->
-  <section id="FPGA" class="relative w-full py-32 bg-white">
-    <div class="relative max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-start gap-12">
-      
-      <!-- Text Column -->
-      <div class="md:w-1/2 flex flex-col justify-center text-left">
-        <h2 class="text-4xl mb-6 text-black" style="font-family: 'Source Code Pro', monospace; font-weight: 500;">
-          FPGA/VHDL
-        </h2>
-        <p class="text-gray-700 leading-relaxed">
-          Wrote and implemented the RX receiver module of a USB protocol with SystemVerilog. Comprehensive testbenches
-          were written and signals were evaluated through simulation. I loved this project even though it kept me up in the lab
-          for two weeks straight.
-          <br><br>
-          Presented the implementation and components as our final project.
-        </p>
-      </div>
 
-      <!-- Image Gallery Column -->
-      <div class="md:w-1/2 flex flex-col items-center space-y-4">
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
-          <!-- Image 1 -->
-          <div class="flex flex-col items-center">
-            <img src="images/photo1.jpg" alt="Image 1" class="rounded-lg shadow-lg w-full cursor-pointer"
-                 onclick="openModal('images/photo1-large.jpg')">
-            <p class="text-sm text-center mt-2">Caption 1</p>
-          </div>
-          <!-- Image 2 -->
-          <div class="flex flex-col items-center">
-            <img src="images/photo2.jpg" alt="Image 2" class="rounded-lg shadow-lg w-full cursor-pointer"
-                 onclick="openModal('images/photo2-large.jpg')">
-            <p class="text-sm text-center mt-2">Caption 2</p>
-          </div>
-          <!-- Image 3 -->
-          <div class="flex flex-col items-center">
-            <img src="images/photo3.jpg" alt="Image 3" class="rounded-lg shadow-lg w-full cursor-pointer"
-                 onclick="openModal('images/photo3-large.jpg')">
-            <p class="text-sm text-center mt-2">Caption 3</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PCB Section -->
-  <section id="PCB" class="relative w-full py-32 bg-blue-100">
+  <!-- Section: Image Left, Text Right -->
+  <section class="relative w-full py-32 bg-blue-100">
     <div class="relative max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
-
+      
       <!-- Image Column -->
       <div class="md:w-1/2 flex justify-center md:justify-start">
         <img src="your-image.jpg" alt="PCB Project" class="rounded-lg shadow-lg w-full max-w-sm">
@@ -194,33 +97,15 @@
 
       <!-- Text Column -->
       <div class="md:w-1/2 flex flex-col justify-center text-left">
-        <h2 class="text-4xl mb-6 text-black" style="font-family: 'Source Code Pro', monospace; font-weight: 500;">
-          PCB DESIGN
-        </h2>
-        <p class="text-gray-700 leading-relaxed">
-          Description of PCB design, assembly, and testing projects.
-        </p>
+        <h2 class="text-4xl mb-6 text-black" style="font-family: 'Source Code Pro', monospace; font-weight: 500;">PCB DESIGN</h2>
+          <p class="text-gray-700 leading-relaxed">
+            Description of PCB design, assembly, and testing projects.
+          </p>
       </div>
 
     </div>
   </section>
-
-  <!-- Modal for Expanded Image -->
-  <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
-    <span class="absolute top-4 right-6 text-white text-3xl cursor-pointer" onclick="closeModal()">&times;</span>
-    <img id="modalImg" src="" alt="Expanded" class="max-h-[90%] max-w-[90%] rounded-lg shadow-lg">
-  </div>
-
-  <script>
-    function openModal(src) {
-      document.getElementById('modalImg').src = src;
-      document.getElementById('imageModal').classList.remove('hidden');
-    }
-    function closeModal() {
-      document.getElementById('imageModal').classList.add('hidden');
-    }
-  </script>
-
+  
   <!-- Footer -->
   <footer class="mt-0 mb-6 text-gray-500 text-sm text-center">
     <p>© 2025 RCHEN</p>

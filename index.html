@@ -160,19 +160,23 @@
   </section>
 
   <!-- Modal for Expanded Image -->
-  <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
-    <span class="absolute top-4 right-6 text-white text-3xl cursor-pointer" onclick="closeModal()">&times;</span>
-    <img id="modalImg" src="" alt="Expanded" class="max-h-[90%] max-w-[90%] rounded-lg shadow-lg">
+  <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50 cursor-pointer"
+      onclick="closeModal()">
+    <img id="modalImg" src="" alt="Expanded" class="max-h-[90%] max-w-[90%] rounded-lg shadow-lg cursor-auto"
+        onclick="event.stopPropagation()">
   </div>
 
   <script>
-    function openModal(src) {
-      document.getElementById('modalImg').src = src;
-      document.getElementById('imageModal').classList.remove('hidden');
-    }
-    function closeModal() {
-      document.getElementById('imageModal').classList.add('hidden');
-    }
+  function openModal(src) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    modalImg.src = src;
+    modal.classList.remove('hidden');
+  }
+
+  function closeModal() {
+    document.getElementById('imageModal').classList.add('hidden');
+  }
   </script>
 
   <!-- Footer -->

@@ -76,14 +76,55 @@
         </p>
       </div>
 
-      <!-- Image Column -->
-      <div class="md:w-1/2 flex flex-col items-center">
-        <img src="images/rxFSM.png" alt="RX Project" class="rounded-lg shadow-lg w-full max-w-sm">
-        <div class="w-full max-w-sm text-center text-black text-sm mt-2">
-          <p>the RTL diagrams for the top level, supporting functions, and FSM</p>
-        </div>
+      <!-- Image Gallery Column -->
+  <div class="md:w-1/2 flex flex-col items-center space-y-4">
+
+    <!-- Gallery Grid: 3 images horizontally -->
+    <div class="grid grid-cols-3 gap-4 w-full">
+      
+        <!-- Image 1 -->
+      <div class="flex flex-col items-center">
+        <img src="images/photo1.jpg" alt="Image 1" 
+            class="rounded-lg shadow-lg w-full cursor-pointer"
+            onclick="openModal('images/photo1-large.jpg')">
+        <p class="text-sm text-center mt-2">Caption 1</p>
       </div>
-  </section>
+
+      <!-- Image 2 -->
+      <div class="flex flex-col items-center">
+        <img src="images/photo2.jpg" alt="Image 2" 
+            class="rounded-lg shadow-lg w-full cursor-pointer"
+            onclick="openModal('images/photo2-large.jpg')">
+        <p class="text-sm text-center mt-2">Caption 2</p>
+      </div>
+
+      <!-- Image 3 -->
+      <div class="flex flex-col items-center">
+        <img src="images/photo3.jpg" alt="Image 3" 
+            class="rounded-lg shadow-lg w-full cursor-pointer"
+            onclick="openModal('images/photo3-large.jpg')">
+        <p class="text-sm text-center mt-2">Caption 3</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Modal for Expanded Image -->
+  <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
+    <span class="absolute top-4 right-6 text-white text-3xl cursor-pointer" onclick="closeModal()">&times;</span>
+    <img id="modalImg" src="" alt="Expanded" class="max-h-[90%] max-w-[90%] rounded-lg shadow-lg">
+  </div>
+
+  <script>
+  function openModal(src) {
+    document.getElementById('modalImg').src = src;
+    document.getElementById('imageModal').classList.remove('hidden');
+  }
+  function closeModal() {
+    document.getElementById('imageModal').classList.add('hidden');
+  }
+  </script>
 
 
   <!-- Section: Image Left, Text Right -->

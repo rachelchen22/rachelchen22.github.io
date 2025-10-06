@@ -92,8 +92,9 @@
   </div>
 </section>
 
+
   <!-- FPGA/VHDL Section -->
-  <section id="FPGA" class="relative w-full py-32 bg-white">
+<section id="FPGA" class="relative w-full py-32 bg-white">
   <div class="relative max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-start gap-12">
     
     <!-- Text Column -->
@@ -106,7 +107,7 @@
         were written and signals were evaluated through simulation. I loved this project even though it kept me up in the lab
         for two weeks straight.
         <br><br>
-        Presented the implementation and components as our final project.
+        Presented the implementation and components as a final project with a team.
       </p>
     </div>
 
@@ -143,7 +144,7 @@
 </section>
 
   <!-- PCB Section -->
-  <section id="PCB" class="relative w-full py-32 bg-blue-100">
+<section id="PCB" class="relative w-full py-32 bg-blue-100">
     <div class="relative max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
 
       <!-- Image Column -->
@@ -166,7 +167,58 @@
       </div>
 
     </div>
-  </section>
+</section>
+
+
+<!-- BLENDER -->
+<section id="blender" class="relative w-full py-32 bg-green-200">
+  <div class="relative max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-start gap-12">
+    
+    <!-- Text Column -->
+    <div class="md:w-1/2 flex flex-col justify-center text-left">
+      <h2 class="text-4xl mb-6 text-black" style="font-family: 'Source Code Pro', monospace; font-weight: 500;">
+        BLENDER/GAME DESIGN
+      </h2>
+      <p class="text-gray-700 leading-relaxed">
+        blah blah blah
+        <br><br>
+        yay!
+      </p>
+    </div>
+
+    <!-- Image Gallery Column -->
+    <div class="md:w-1/2 flex flex-col items-center md:items-start space-y-6 md:pl-8">
+
+      <!-- Instruction Text -->
+      <p class="text-sm text-gray-500 italic mb-2 w-full text-center">click to expand</p>
+
+      <!-- Gallery Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+        
+        <!-- Image 1 -->
+        <div class="flex flex-col items-center">
+          <img src="images/rxtoplevel.png" alt="Top Level RTL" 
+              class="rounded-lg shadow-lg w-full max-w-sm h-64 object-cover cursor-pointer"
+              onclick="openModal('images/rxtoplevel.png')">
+          <p class="text-sm text-center mt-2 h-6 flex items-center justify-center">top level RTL</p>
+        </div>
+
+        <!-- Image 2 -->
+        <div class="flex flex-col items-center">
+          <img src="images/rxFSM.png" alt="FSM Diagram" 
+              class="rounded-lg shadow-lg w-full max-w-sm h-64 object-cover cursor-pointer"
+              onclick="openModal('images/rxFSM.png')">
+          <p class="text-sm text-center mt-2 h-6 flex items-center justify-center">FSM diagram</p>
+        </div>
+
+      </div> <!-- End Gallery Grid -->
+
+    </div> <!-- End Image Gallery Column -->
+
+  </div> <!-- End flex container -->
+</section>
+
+
 
   <!-- Modal for Expanded Image -->
   <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50 cursor-pointer"

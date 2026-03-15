@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Board Display</title>
+    <style>
+        body {
+            background: #0f172a; /* Deep midnight blue */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* The Card UI */
+        .card {
+            width: 340px;
+            height: 210px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: white;
+        }
+
+        /* The chip detail */
+        .chip {
+            width: 45px;
+            height: 35px;
+            background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .card-number {
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            font-family: 'Courier New', monospace;
+            margin-top: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.6;
+            margin-bottom: 4px;
+        }
+
+        .value {
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        /* Subtle holographic glow effect */
+        .card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            transform: rotate(30deg);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="top-row">
+            <div class="chip"></div>
+        </div>
+
+        <div class="card-number">•••• •••• •••• 4370</div>
+
+        <div class="bottom-row">
+            <div>
+                <div class="label">Card Holder</div>
+                <div class="value">PURDUE PETE</div>
+            </div>
+            <div style="text-align: right;">
+                <div class="label">Balance</div>
+                <div class="value" style="color: #4ade80;">$5,437.00</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

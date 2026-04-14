@@ -1,83 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFC Wallet Board</title>
-    <style>
-        body {
-            background: #0f172a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: sans-serif;
-        }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
 
-        .card {
-            width: 320px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            color: white;
-            transition: all 0.5s ease;
-        }
+<script>
+  const encrypted = new URLSearchParams(window.location.search).get("data");
 
-        /* Specific Card Themes */
-        .gold-card { border-top: 5px solid #d4af37; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2); }
-        .platinum-card { border-top: 5px solid #e5e4e2; box-shadow: 0 10px 30px rgba(229, 228, 226, 0.2); }
+  const password = "joshualingus";
+  const salt = CryptoJS.enc.Utf8.parse("salt123");
 
-        .chip { width: 45px; height: 35px; background: linear-gradient(135deg, #fceabb, #f8b500); border-radius: 6px; }
-        .label { font-size: 0.7rem; opacity: 0.6; text-transform: uppercase; }
-        .value { font-size: 1.1rem; font-weight: bold; }
-        .balance-value { color: #4ade80; font-size: 1.4rem; }
-    </style>
-</head>
-<body>
+  // derive key using PBKDF2
+  const key = CryptoJS.PBKDF2(password, salt, {
+    keySize: 256 / 32,
+    iterations: 100000,
+    hasher: CryptoJS.algo.SHA512
+  });
 
-    <div id="wallet-card" class="card gold-card">
-        <div class="chip"></div>
-        <div id="card-num">•••• •••• •••• 0001</div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-            <div>
-                <div class="label">Holder</div>
-                <div id="holder-name" class="value">AWAITING TAP</div>
-            </div>
-            <div style="text-align: right;">
-                <div class="label">Balance</div>
-                <div id="balance" class="balance-value">$0.00</div>
-            </div>
-        </div>
-    </div>
+  // zero IV
+  const iv = CryptoJS.enc.Hex.parse("00000000000000000000000000000000");
 
-    <script>
-        // Check URL for ?c=1 or ?c=2
-        const params = new URLSearchParams(window.location.search);
-        const cardChoice = params.get('c');
+  const decrypted = CryptoJS.AES.decrypt(
+    { ciphertext: CryptoJS.enc.Base64.parse(encrypted) },
+    key,
+    {
+      iv: iv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.Pkcs7
+    }
+  );
 
-        const cardUI = document.getElementById('wallet-card');
-        const nameUI = document.getElementById('holder-name');
-        const balUI = document.getElementById('balance');
-        const numUI = document.getElementById('card-num');
+  const text = decrypted.toString(CryptoJS.enc.Utf8);
 
-        if (cardChoice === '1') {
-            cardUI.className = 'card gold-card';
-            nameUI.innerText = "purdue pete";
-            balUI.innerText = "$6,767.67";
-            numUI.innerText = "•••• •••• •••• 1869";
-        } else if (cardChoice === '2') {
-            cardUI.className = 'card platinum-card';
-            nameUI.innerText = "BOILERMAKER";
-            balUI.innerText = "$100.00";
-            numUI.innerText = "•••• •••• •••• 2026";
-        }
-    </script>
-</body>
-</html>
+  document.body.innerText = text || "❌ Failed to decrypt";
+</script>

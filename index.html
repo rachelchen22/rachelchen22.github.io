@@ -1,11 +1,13 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
 <script>
 (async () => {
-  const params = new URLSearchParams(window.location.search);
-  const encrypted = params.get("data");
+  function getHashData() {
+    return window.location.hash.substring(1); // remove "#"
+  }
+
+  const encrypted = getHashData();
 
   if (!encrypted) {
-    document.body.innerText = "❌ Missing ?data=";
+    document.body.innerText = "❌ No #data provided in URL";
     return;
   }
 
@@ -15,6 +17,7 @@
     const password = "joshualingus";
     const salt = new TextEncoder().encode("salt123");
 
+    // Base64 decode (hash is NOT mangled, so safe)
     const ciphertext = Uint8Array.from(atob(encrypted), c => c.charCodeAt(0));
 
     const keyMaterial = await crypto.subtle.importKey(
@@ -26,14 +29,19 @@
     );
 
     const key = await crypto.subtle.deriveKey(
-      { name: "PBKDF2", salt, iterations: 10000, hash: "SHA-512" },
+      {
+        name: "PBKDF2",
+        salt,
+        iterations: 10000,
+        hash: "SHA-512"
+      },
       keyMaterial,
       { name: "AES-CBC", length: 256 },
       false,
       ["decrypt"]
     );
 
-    const iv = new Uint8Array(16);
+    const iv = new Uint8Array(16); // all zeros
 
     const decrypted = await crypto.subtle.decrypt(
       { name: "AES-CBC", iv },
@@ -43,11 +51,11 @@
 
     const text = new TextDecoder().decode(decrypted);
 
-    document.body.innerText = "✅ RESULT:\n\n" + text;
+    document.body.innerText = text;
 
-  } catch (e) {
-    document.body.innerText = "❌ ERROR:\n\n" + e.message;
-    console.error(e);
+  } catch (err) {
+    document.body.innerText = "❌ Decryption failed\n\n" + err.message;
+    console.error(err);
   }
 })();
 </script>

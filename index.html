@@ -20,7 +20,7 @@ window.onload = async () => {
     const hash = window.location.hash.substring(1);
     log("HASH OK");
 
-    // STEP 1: Base64 decode
+    // 1. BASE64 DECODE
     let ciphertext;
     try {
       function base64ToBytes(str) {
@@ -41,7 +41,7 @@ window.onload = async () => {
 
     log("BASE64 OK (" + ciphertext.length + " bytes)");
 
-    // STEP 2: Key derivation
+    // 2: key derive
     const password = "joshualingus";
     const salt = new TextEncoder().encode("salt123");
 
@@ -68,7 +68,7 @@ window.onload = async () => {
       ["decrypt"]
     );
 
-    log("KEY DERIVED");
+    log("KEY DERIVED!!!!!!!!!!");
 
     const data = ciphertext;
 
@@ -88,22 +88,22 @@ window.onload = async () => {
     );
     } catch (e) {
     out.textContent =
-        "❌ AES DECRYPT FAILED\n" +
+        "AES DECRYPT FAILED U ARE STUPID\n" +
         e.name + "\n" +
         e.message;
     return;
     }
 
-    log("DECRYPT OK");
+    log("DECRYPT OK!!!!!!");
 
     const text = new TextDecoder().decode(decrypted);
 
-    out.textContent = "✅ RESULT:\n\n" + text;
+    out.textContent = "RESUL TGRRAAAGGGRGRRGG:\n\n" + text;
 
   } catch (err) {
     console.error(err);
     out.textContent =
-      "❌ CRASH:\n" + err.name + "\n" + err.message;
+      "CRASH you are stupid:\n" + err.name + "\n" + err.message;
   }
 };
 </script>

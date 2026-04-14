@@ -1,32 +1,53 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
-
 <script>
-  const encrypted = new URLSearchParams(window.location.search).get("data");
+(async () => {
+  const params = new URLSearchParams(window.location.search);
+  const encrypted = params.get("data");
 
-  const password = "joshualingus";
-  const salt = CryptoJS.enc.Utf8.parse("salt123");
+  if (!encrypted) {
+    document.body.innerText = "❌ Missing ?data=";
+    return;
+  }
 
-  // derive key using PBKDF2
-  const key = CryptoJS.PBKDF2(password, salt, {
-    keySize: 256 / 32,
-    iterations: 100000,
-    hasher: CryptoJS.algo.SHA512
-  });
+  document.body.innerText = "Decrypting...";
 
-  // zero IV
-  const iv = CryptoJS.enc.Hex.parse("00000000000000000000000000000000");
+  try {
+    const password = "joshualingus";
+    const salt = new TextEncoder().encode("salt123");
 
-  const decrypted = CryptoJS.AES.decrypt(
-    { ciphertext: CryptoJS.enc.Base64.parse(encrypted) },
-    key,
-    {
-      iv: iv,
-      mode: CryptoJS.mode.CBC,
-      padding: CryptoJS.pad.Pkcs7
-    }
-  );
+    const ciphertext = Uint8Array.from(atob(encrypted), c => c.charCodeAt(0));
 
-  const text = decrypted.toString(CryptoJS.enc.Utf8);
+    const keyMaterial = await crypto.subtle.importKey(
+      "raw",
+      new TextEncoder().encode(password),
+      "PBKDF2",
+      false,
+      ["deriveKey"]
+    );
 
-  document.body.innerText = text || "❌ Failed to decrypt";
+    const key = await crypto.subtle.deriveKey(
+      { name: "PBKDF2", salt, iterations: 10000, hash: "SHA-512" },
+      keyMaterial,
+      { name: "AES-CBC", length: 256 },
+      false,
+      ["decrypt"]
+    );
+
+    const iv = new Uint8Array(16);
+
+    const decrypted = await crypto.subtle.decrypt(
+      { name: "AES-CBC", iv },
+      key,
+      ciphertext
+    );
+
+    const text = new TextDecoder().decode(decrypted);
+
+    document.body.innerText = "✅ RESULT:\n\n" + text;
+
+  } catch (e) {
+    document.body.innerText = "❌ ERROR:\n\n" + e.message;
+    console.error(e);
+  }
+})();
 </script>

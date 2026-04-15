@@ -1,47 +1,192 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Decrypt Debug</title>
+<meta charset="UTF-8">
+<title>Decrypt Wallet Card</title>
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b, #0b1220);
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* glow */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(0, 200, 255, 0.25), transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(255, 0, 180, 0.18), transparent 55%);
+  filter: blur(35px);
+  z-index: -1;
+  animation: glowMove 6s ease-in-out infinite alternate;
+}
+
+/* card */
+.card {
+  width: 360px;
+  height: 220px;
+  border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, #5a46a0, #232f4a);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.75),
+    0 0 25px rgba(0, 200, 255, 0.2);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* shine */
+.card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(255,255,255,0.08),
+    transparent 60%
+  );
+  transform: rotate(25deg);
+  animation: shine 7s linear infinite;
+}
+
+/* chip */
+.chip {
+  width: 55px;
+  height: 38px;
+  background: linear-gradient(135deg, #ffd700, #b8860b);
+  border-radius: 6px;
+  margin-bottom: 18px;
+}
+
+/* number */
+.card-number {
+  font-size: 22px;
+  letter-spacing: 4px;
+  text-align: center;
+  margin: 10px 0 28px 0;
+}
+
+/* bottom row */
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* each column */
+.left, .right {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.right {
+  text-align: right;
+}
+
+.label {
+  font-size: 9px;
+  opacity: 0.5;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+/* debug */
+#out {
+  white-space: pre-wrap;
+  font-size: 12px;
+  opacity: 0.7;
+  max-width: 400px;
+}
+
+/* animations */
+@keyframes glowMove {
+  0% { transform: translate(-10px, -10px); }
+  100% { transform: translate(10px, 10px); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-60%) rotate(25deg); }
+  100% { transform: translateX(60%) rotate(25deg); }
+}
+</style>
 </head>
 
 <body>
-  <pre id="out">Loading...</pre>
 
-  <script>
+<!-- CARD -->
+<div class="card">
+
+  <div class="chip"></div>
+
+  <div class="card-number" id="cardNumber">#### #### #### ####</div>
+
+  <!-- STRUCTURE -->
+  <div class="bottom-row">
+
+    <!-- NAME -->
+    <div class="left">
+      <div class="label">NAME</div>
+      <div id="name">----</div>
+    </div>
+
+    <!-- EXPIRY + CVV -->
+    <div class="right">
+
+      <div>
+        <div class="label">EXPIRES</div>
+        <div id="expiry">--/--</div>
+      </div>
+
+      <div style="margin-top:6px;">
+        <div class="label">CVV</div>
+        <div id="cvv">---</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<script>
 window.onload = async () => {
   const out = document.getElementById("out");
 
-  const log = (m) => out.textContent += "\n" + m;
-
   try {
-    out.textContent = "START";
-
     const hash = window.location.hash.substring(1);
-    log("HASH OK");
 
-    // 1: base64 decode
-    let ciphertext;
-    try {
-      function base64ToBytes(str) {
-        str = str.replace(/-/g, '+').replace(/_/g, '/');
-
-        while (str.length % 4) {
-            str += '=';
-        }
-
-        return Uint8Array.from(atob(str), c => c.charCodeAt(0));
-        }
-
-        ciphertext = base64ToBytes(hash);
-    } catch (e) {
-      out.textContent = "ASE64 FAILED idiot\n" + e.message;
+    if (!hash) {
+      out.textContent = "No data in URL";
       return;
     }
 
-    log("BASE64 OK (" + ciphertext.length + " bytes)");
+    // base64 decode
+    function base64ToBytes(str) {
+      str = str.replace(/-/g, '+').replace(/_/g, '/');
+      while (str.length % 4) str += '=';
+      return Uint8Array.from(atob(str), c => c.charCodeAt(0));
+    }
 
-    // 2: key derivation
+    const ciphertext = base64ToBytes(hash);
+
+    // key
     const password = "joshualingus";
     const salt = new TextEncoder().encode("salt123");
 
@@ -52,8 +197,6 @@ window.onload = async () => {
       false,
       ["deriveKey"]
     );
-
-    log("KEY MATERIAL OK");
 
     const key = await crypto.subtle.deriveKey(
       {
@@ -68,42 +211,43 @@ window.onload = async () => {
       ["decrypt"]
     );
 
-    log("KEY DERIVED");
+    // decrypt
+    const iv = new Uint8Array(16);
 
-    // 3 decode + iv
-    const data = ciphertext;
-    const iv = new Uint8Array(16); // all zeros
-
-    let decrypted;
-    try {
-    decrypted = await crypto.subtle.decrypt(
-        {
-        name: "AES-CBC",
-        iv: iv
-        },
-        key,
-        ciphertext
+    const decrypted = await crypto.subtle.decrypt(
+      { name: "AES-CBC", iv },
+      key,
+      ciphertext
     );
-    } catch (e) {
-    out.textContent =
-        "AES DECRYPT FAILED\n" +
-        e.name + "\n" +
-        e.message;
-    return;
-    }
-
-    log("DECRYPT OK");
 
     const text = new TextDecoder().decode(decrypted);
 
-    out.textContent = "YAYYY RESULT GRR AHHHH:\n\n" + text;
+    // sRUCTURE
+    const cardNumber = text.slice(0, 16);
+    const name = text.slice(16, 22);
+    const expiry = text.slice(22, 26);
+    const cvv = text.slice(26, 29);
+
+    // UI
+    document.getElementById("cardNumber").textContent =
+      cardNumber.match(/.{1,4}/g).join(" ");
+
+    document.getElementById("name").textContent = name.toUpperCase();
+    document.getElementById("expiry").textContent = expiry;
+    document.getElementById("cvv").textContent = cvv;
+
+    console.log =
+      "DECRYPT SUCCESS\n\n" +
+      "CARD: " + cardNumber + "\n" +
+      "NAME: " + name + "\n" +
+      "EXP: " + expiry + "\n" +
+      "CVV: " + cvv;
 
   } catch (err) {
-    console.error(err);
-    out.textContent =
-      "CRASH u are sutpifd:\n" + err.name + "\n" + err.message;
+    out.textContent = "ERROR:\n" + err.name + "\n" + err.message;
   }
 };
 </script>
+
 </body>
 </html>

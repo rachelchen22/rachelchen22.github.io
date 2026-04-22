@@ -164,7 +164,6 @@ body {
 </div>
 
 
-
 <script>
 window.onload = async () => {
   const out = document.getElementById("out");
@@ -173,18 +172,31 @@ window.onload = async () => {
     const hash = window.location.hash.substring(1);
 
     if (!hash) {
-      out.textContent = "No data in URL";
+      out.textContent = "no data in URL you srtupid stupid dumb head";
       return;
     }
 
-    // base64 decode
+    // SPLIT INSTEAD OF SLICE GRAHHr
+    const parts = hash.split("|");
+
+    if (parts.length !== 6) {
+      throw new Error("invalid format lol you suck");
+    }
+
+    const last4 = parts[0];
+    const firstName = parts[1];
+    const lastName = parts[2];
+
+    const encCard = parts[3];
+    const encCvv = parts[4];
+    const encExp = parts[5];
+
+    // base64 decoder
     function base64ToBytes(str) {
       str = str.replace(/-/g, '+').replace(/_/g, '/');
       while (str.length % 4) str += '=';
       return Uint8Array.from(atob(str), c => c.charCodeAt(0));
     }
-
-    const ciphertext = base64ToBytes(hash);
 
     // key
     const password = "joshualingus";
@@ -211,43 +223,58 @@ window.onload = async () => {
       ["decrypt"]
     );
 
-    // decrypt
-    const iv = new Uint8Array(16);
+    const iv = new Uint8Array(16); // static but idgafffff
 
-    const decrypted = await crypto.subtle.decrypt(
-      { name: "AES-CBC", iv },
-      key,
-      ciphertext
-    );
+    // decrypt helper
+    async function decryptField(base64) {
+      const bytes = base64ToBytes(base64);
 
-    const text = new TextDecoder().decode(decrypted);
+      const decrypted = await crypto.subtle.decrypt(
+        { name: "AES-CBC", iv },
+        key,
+        bytes
+      );
 
-    // sRUCTURE
-    const cardNumber = text.slice(0, 16);
-    const name = text.slice(16, 22);
-    const expiry = text.slice(22, 26);
-    const cvv = text.slice(26, 29);
+      return new TextDecoder().decode(decrypted);
+    }
+
+    // decrypt each field
+    const cardNumber = await decryptField(encCard);
+    const cvv = await decryptField(encCvv);
+    const expiry = await decryptField(encExp);
+
+    // combine name
+    const fullName = (firstName + " " + lastName).toUpperCase();
+
+
+    // join first 12 + last 4
+    const fullCard = cardNumber + last4;
 
     // UI
     document.getElementById("cardNumber").textContent =
-      cardNumber.match(/.{1,4}/g).join(" ");
+      fullCard.match(/.{1,4}/g).join(" ");
 
-    document.getElementById("name").textContent = name.toUpperCase();
+    document.getElementById("name").textContent = fullName;
     document.getElementById("expiry").textContent = expiry;
     document.getElementById("cvv").textContent = cvv;
 
-    out.textContent =
+    console.log(
       "DECRYPT SUCCESS\n\n" +
+      "LAST4: " + last4 + "\n" +
+      "NAME: " + fullName + "\n" +
       "CARD: " + cardNumber + "\n" +
-      "NAME: " + name + "\n" +
       "EXP: " + expiry + "\n" +
-      "CVV: " + cvv;
+      "CVV: " + cvv
+    );
 
   } catch (err) {
-    out.textContent = "ERROR:\n" + err.name + "\n" + err.message;
+    if (out) {
+      out.textContent = "ERROR:\n" + err.name + "\n" + err.message;
+    }
+    console.error(err);
   }
 };
 </script>
 
-</body>
-</html>
+  </body>
+  </html> 

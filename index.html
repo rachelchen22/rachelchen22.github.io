@@ -169,8 +169,7 @@ window.onload = async () => {
   const out = document.getElementById("out");
 
   try {
-    const hash = window.location.hash.substring(1);
-
+    const hash = decodeURIComponent(window.location.hash.substring(1));
     if (!hash) {
       out.textContent = "no data in URL you srtupid stupid dumb head";
       return;
